@@ -19,9 +19,6 @@ jobs:
         with:
           node-version: 16
 
-      - name: Set output using Environment File
-        run: echo "MY_OUTPUT=BUILT_APP_PATH=tictactoe/tictactoe/build" >> $GITHUB_ENV
-
       - name: Get changed files
         id: getfile
         run: echo "::set-output name=files::$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | grep -e '.*\.md$' | xargs)"
